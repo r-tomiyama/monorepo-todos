@@ -16,9 +16,11 @@ export default function Home() {
         />
         <ol>
           <li>
-            Get started by editing <code>app/page.tsx</code>
+            hoge
           </li>
-          <li>Save and see your changes instantly.</li>
+          <li>
+            fuga
+          </li>
         </ol>
 
         <div className={styles.ctas}>
