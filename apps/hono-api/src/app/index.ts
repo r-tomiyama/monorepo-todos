@@ -35,7 +35,7 @@ app.use(async (c, next) => {
 	});
 });
 
-app.get("/todos", async (c) => {
+const getTodos = app.get("/todos", async (c) => {
 	const todos = await prisma.todo.findMany();
 	return c.json(todos);
 });
@@ -76,5 +76,7 @@ app.post(
 		return c.json(todo, 200);
 	},
 );
+
+export type GetTodos = typeof getTodos;
 
 export default app;
