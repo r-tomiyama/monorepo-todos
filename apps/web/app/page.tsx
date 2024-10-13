@@ -7,7 +7,13 @@ const client = hc<GetTodos>('http://localhost:8000');
 
 export default async function Home() {
 
-  const todos = await client.todos.$get().then((res) => res.json());
+  const response = await fetch('http://localhost:8000/todos');
+
+  const todos = [];
+  // await client.todos.$get().then((res) => res.json()).catch((err) => {
+  //   console.log('error')
+  //   console.error(err)
+  //   return []});
 
   return (
     <div className={styles.page}>

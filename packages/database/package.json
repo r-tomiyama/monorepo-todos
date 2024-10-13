@@ -1,0 +1,20 @@
+{
+  "name": "@repo/database",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": "./index.ts"
+  } ,
+	"scripts": {
+		"preschema:gen": "prisma-case-format --file prisma/schema.prisma --config-file=prisma/.prisma-case-format",
+		"schema:gen": "prisma format && prisma generate --sql",
+		"migrate": "prisma migrate dev"
+	},
+	"dependencies": {
+		"@prisma/client": "^5.19.0"
+	},
+  "devDependencies": {
+    "prisma": "^5.19.0",
+		"prisma-case-format": "^2.2.1"
+  }
+}

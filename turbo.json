@@ -11,8 +11,15 @@
       "dependsOn": ["^lint"]
     },
     "dev": {
+      "dependsOn": ["^migrate", "^schema:gen"],
       "cache": false,
       "persistent": true
+    },
+    "schema:gen": {
+      "cache": false
+    },
+    "migrate": {
+      "cache": false
     }
   }
 }
