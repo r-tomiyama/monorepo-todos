@@ -6,8 +6,10 @@ import { hc } from 'hono/client'
 const client = hc<GetTodos>('http://localhost:8000');
 
 export default async function Home() {
-
-  const todos = await client.todos.$get().then((res) => res.json());
+  const todos =  await client.todos.$get().then((res) => res.json()).catch((err) => {
+    console.log('error')
+    console.error(err)
+    return []});
 
   return (
     <div className={styles.page}>

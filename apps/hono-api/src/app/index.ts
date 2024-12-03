@@ -1,6 +1,5 @@
 import { zValidator } from "@hono/zod-validator";
-import { PrismaClient } from "@prisma/client";
-import { countByIsCompleted } from "@prisma/client/sql";
+import { PrismaClient } from "@repo/database";
 import { Hono } from "hono";
 import { logger } from "hono/logger";
 import { requestId } from "hono/request-id";
@@ -46,11 +45,11 @@ app.get("/todos/:id", async (c) => {
 	return c.json(todo);
 });
 
-app.get("/todos/completed/count", async (c) => {
-	const res = await prisma.$queryRawTyped(countByIsCompleted(true));
+// app.get("/todos/completed/count", async (c) => {
+// 	const res = await prisma.$queryRawTyped(countByIsCompleted(true));
 
-	return c.json({ count: res[0].count || 0 });
-});
+// 	return c.json({ count: res[0].count || 0 });
+// });
 
 const postSchema = z.object({
 	title: z.string(),
